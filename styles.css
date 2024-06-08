@@ -1,0 +1,141 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.inner-container {
+  display: grid;
+  place-items: center;
+  width: 400px;
+  position: relative;
+  height: 500px;
+  border: 5px solid black;
+  border-radius: 100%;
+  background-color: white;
+  transform: translate(var(--moveX), var(--moveY));
+
+  animation: closeEyes 1s ease infinite alternate;
+  /* transition: 100ms ease; */
+}
+
+/* @keyframes closeEyes {
+  0% {
+    height: 500px;
+  }
+  100% {
+    height: 470px;
+  }
+} */
+
+.container {
+  width: 180px;
+  height: 200px;
+  background-color: rgb(28, 28, 28);
+  border: 20px solid rgb(193, 69, 255);
+  position: relative;
+  border-radius: 100%;
+
+  transform: translate(var(--moveX), var(--moveY));
+  /* transition: 500ms ease; */
+}
+
+.moving-box {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 50px;
+  border-radius: 100%;
+  top: 40px;
+  background-color: white;
+  transform: translate(var(--moveX), var(--moveY));
+  /* transition: 500ms ease; */
+}
+
+@keyframes bigger {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.moving-box::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.911);
+  border-radius: 100%;
+  top: 50px;
+  right: 30px;
+}
+
+.body {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 95vh;
+  background: linear-gradient(
+    to bottom,
+    rgb(255, 255, 126),
+    rgb(255, 221, 126)
+  );
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top-left-radius: 2000px;
+  border-top-right-radius: 2000px;
+  transform: translate(var(--moveX), var(--moveY));
+  animation: breath 1s ease infinite alternate;
+}
+
+.black {
+  background-color: black !important;
+  background: none;
+}
+
+.breath {
+  animation: breath 1s ease infinite alternate;
+}
+
+@keyframes breath {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.045);
+  }
+}
+
+.blink {
+  animation: blink 300ms ease;
+}
+
+@keyframes blink {
+  0% {
+    height: 500px;
+  }
+  100% {
+    height: 0;
+  }
+}
+
+.opacity {
+  visibility: collapse;
+}
+
+.opacity-back {
+  visibility: visible;
+}
